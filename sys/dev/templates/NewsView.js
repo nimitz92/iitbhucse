@@ -8,8 +8,7 @@ IITBHUCSE.jquery.template.NewsView = $.template('\
 		<table class="margin5">\
 			<tbody>\
 				<tr>\<td class="bold">${news.newstitle}</td></tr>\
-				<tr><td>${news.newsauthor}</td></tr>\
-				<tr><td>${news.newsdescription}</td></tr>\
+				<tr><td>Author : ${news.newsauthor}</td></tr>\
 				<tr><td>${news.newscontent}</td></tr>\
 				</tr>\
 				<tr><td>\

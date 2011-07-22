@@ -867,13 +867,12 @@ IITBHUCSE.jquery.template.NewsEdit = $.template('\
 **/
 IITBHUCSE.jquery.template.NewsUpdate = $.template('\
 <div id="news-panel" class="panel">\
-<div id="grid-panel"></div>\
 	<fieldset>\
-		<legend class="head">Latest Updates</legend>\
+		<legend class="headdark">Latest Updates</legend>\
 		<ul class="vertical menu">\
 			{{each news}}\
 				<li><a class="navigate bold" \
-						href="#tplload:cntr=#main-container:tpl=tpl-nws-vw:url=core/admin/news.php:arg=do~get&newsid~${newsid}"\
+						href="#tplload:cntr=#main-container:tpl=tpl-nws-vw:url=core/news/news-all.php:arg=newsid~${newsid}"\
 						>${newstitle}<br /></a>\
 						${newsdescription}\
 				</li>\
@@ -899,7 +898,7 @@ IITBHUCSE.jquery.template.NewsView = $.template('\
 				<tr><td>${news.newscontent}</td></tr>\
 				</tr>\
 				<tr><td>\
-					{{if news.newssize}}\
+					{{if news.newssize >0}}\
 						<a href="core/space/read.php?spid=${news.newsattachment}" target="_blank">\
 							Attachment [${ServiceClient.jquery.helper.readFileSize(news.newssize)}]\
 						</a>\

@@ -41,7 +41,7 @@
 		/**
 		 * Get all news
 		**/
-		if(isset($_POST['all'])){
+		else if(isset($_POST['all'])){
 		$op = $cl->load("news.all", ICROOT);
 		$model['all'] = $_POST['all'];
 		$model = $kernel->run($op, $model);
@@ -54,6 +54,21 @@
 			$result['success'] = false;
 			$result['msg'] = '<p class="error">'.$model['msg'].'</p>';
 		}
+		}
+		
+		else{
+			$op = $cl->load("news.info", ICROOT);
+			$model['newsid'] = $_POST['newsid'];
+			$model = $kernel->run($op, $model);
+			
+			if($model['valid']){
+				$result['success'] = true;
+				$result['news'] = $model['news'];
+			}
+			else {
+				$result['success'] = false;
+				$result['template'] = '<p class="error">'.$model['msg'].'</p>';
+			}
 		}
 	echo json_encode($result);
 
